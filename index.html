@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>McQueen Rescues - Multilingual</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #language-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+      background-color: #f5f5f5;
+    }
+
+    .lang-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #0078d7;
+      color: white;
+    }
+
+    .lang-btn:hover {
+      background-color: #005ea3;
+    }
+
+    iframe {
+      flex-grow: 1;
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="language-buttons">
+    <button class="lang-btn" onclick="translateSite('fi')">Suomi</button>
+    <button class="lang-btn" onclick="translateSite('de')">Deutsch</button>
+  </div>
+
+  <iframe id="site-frame" src="https://www.mcqueenrescues.org"></iframe>
+
+  <script>
+    function translateSite(lang) {
+      const baseUrl = "https://www.mcqueenrescues.org";
+      const translateUrl = "https://translate.google.com/translate?sl=auto&tl=" + lang + "&u=" + encodeURIComponent(baseUrl);
+      document.getElementById("site-frame").src = translateUrl;
+    }
+  </script>
+</body>
+</html>
